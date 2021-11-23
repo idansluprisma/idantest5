@@ -7,10 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Running check"
-      
       - name: Run Bridgecrew 
-          id: Bridgecrew
-          uses: bridgecrewio/bridgecrew-action@master
-          with:
-            api-key: ${{ secrets.BRIDGECREW_API_KEY }}
+        id: Bridgecrew
+        uses: bridgecrewio/bridgecrew-action@master
+        with:
+          api-key: ${{ secrets.BRIDGECREW_API_KEY }}
       - run: echo "Bridgecrew completed"
