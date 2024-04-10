@@ -14,7 +14,7 @@ locals {
     value = "${data.aws_caller_identity.current.account_id}-${var.company_name}-${var.environment}"
   }
 }
-
+password = titi
 
 
 variable "profile" {
