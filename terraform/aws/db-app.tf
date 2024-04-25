@@ -23,6 +23,7 @@ resource "aws_db_instance" "default" {
   tags = {
     Name        = "${local.resource_prefix.value}-rds"
     Environment = local.resource_prefix.value
+    yor_trace   = "62dfb13d-68e0-4012-bc8a-fc0e9509bae7"
   }
 
   # Ignore password changes from tf plan diff
@@ -40,6 +41,7 @@ resource "aws_db_option_group" "default" {
   tags = {
     Name        = "${local.resource_prefix.value}-og"
     Environment = local.resource_prefix.value
+    yor_trace   = "845fe9b8-36a1-4b1c-b034-fe273c2642e9"
   }
 }
 
@@ -63,6 +65,7 @@ resource "aws_db_parameter_group" "default" {
   tags = {
     Name        = "${local.resource_prefix.value}-pg"
     Environment = local.resource_prefix.value
+    yor_trace   = "31215366-e5dd-4382-bca1-7e0bda648e9d"
   }
 }
 
@@ -74,6 +77,7 @@ resource "aws_db_subnet_group" "default" {
   tags = {
     Name        = "sg-${local.resource_prefix.value}"
     Environment = local.resource_prefix.value
+    yor_trace   = "7dfde3c9-d6ee-428a-ad96-359367bb4ec0"
   }
 }
 
@@ -84,6 +88,7 @@ resource "aws_security_group" "default" {
   tags = {
     Name        = "${local.resource_prefix.value}-rds-sg"
     Environment = local.resource_prefix.value
+    yor_trace   = "c3f9099f-8b03-441b-8bbf-f85e7b5b5621"
   }
 }
 
@@ -110,6 +115,9 @@ resource "aws_security_group_rule" "egress" {
 resource "aws_iam_instance_profile" "ec2profile" {
   name = "${local.resource_prefix.value}-profile"
   role = "${aws_iam_role.ec2role.name}"
+  tags = {
+    yor_trace = "018dcf65-ee26-4bee-8b72-01b7c60c3b80"
+  }
 }
 
 resource "aws_iam_role" "ec2role" {
@@ -135,6 +143,7 @@ EOF
   tags = {
     Name        = "${local.resource_prefix.value}-role"
     Environment = local.resource_prefix.value
+    yor_trace   = "7255fa8c-5ded-4987-bda3-d4cbf04db7f3"
   }
 }
 
@@ -334,7 +343,8 @@ sudo chown root:root /var/www/html/index.php
 
 EOF
   tags = {
-    Name = "${local.resource_prefix.value}-dbapp"
+    Name      = "${local.resource_prefix.value}-dbapp"
+    yor_trace = "a69fa95b-7e6b-4947-92b4-e96232884409"
   }
 }
 

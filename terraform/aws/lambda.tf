@@ -16,6 +16,9 @@ resource "aws_iam_role" "iam_for_lambda" {
   ]
 }
 EOF
+  tags = {
+    yor_trace = "42b07a9b-b18a-4e68-88a3-a7bdf447c05a"
+  }
 }
 
 resource "aws_lambda_function" "analysis_lambda" {
@@ -34,5 +37,8 @@ resource "aws_lambda_function" "analysis_lambda" {
       access_key = "AKIAIOSFODNN7EXAMPLE"
       secret_key = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
     }
+  }
+  tags = {
+    yor_trace = "363e3a5c-eb9a-4a46-8198-140da5ec3466"
   }
 }

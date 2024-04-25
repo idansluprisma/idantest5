@@ -8,6 +8,9 @@ resource "azurerm_managed_disk" "example" {
   encryption_settings {
     enabled = false
   }
+  tags = {
+    yor_trace = "bd965acc-ef6b-437a-aaec-a75209dcd73c"
+  }
 }
 
 resource "azurerm_storage_account" "example" {
@@ -36,6 +39,9 @@ resource "azurerm_storage_account" "example" {
       version               = "1.0"
       retention_policy_days = 10
     }
+  }
+  tags = {
+    yor_trace = "18a7c556-631b-469a-922b-84c4fb53ec47"
   }
 }
 

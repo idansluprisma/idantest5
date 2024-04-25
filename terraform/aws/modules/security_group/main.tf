@@ -21,6 +21,7 @@ resource "aws_security_group" "sg" {
   }
 
   tags = {
-    Name = "allow_ssh"
+    Name      = "allow_ssh"
+    yor_trace = "88e70c06-7b36-49f4-943e-c2fa86b5f809"
   }
 }

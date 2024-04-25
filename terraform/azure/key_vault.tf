@@ -18,6 +18,7 @@ resource "azurerm_key_vault" "example" {
   tags = {
     environment = var.environment
     terragoat   = true
+    yor_trace   = "76591901-0b40-4a41-b2d0-11e243f81bd7"
   }
 }
 
@@ -34,10 +35,16 @@ resource "azurerm_key_vault_key" "generated" {
     "verify",
     "wrapKey",
   ]
+  tags = {
+    yor_trace = "887b54a4-b69e-494b-80f6-f0929cbf65b5"
+  }
 }
 
 resource "azurerm_key_vault_secret" "secret" {
   key_vault_id = azurerm_key_vault.example.id
   name         = "terragoat-secret-${var.environment}"
   value        = random_string.password.result
+  tags = {
+    yor_trace = "faece81f-44ca-4f5b-bd84-ad13a8af19e0"
+  }
 }
