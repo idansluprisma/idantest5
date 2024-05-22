@@ -19,6 +19,7 @@ resource "azurerm_key_vault" "example" {
     environment = var.environment
     terragoat   = true
   }
+  public_network_access_enabled = false
 }
 
 resource "azurerm_key_vault_key" "generated" {
